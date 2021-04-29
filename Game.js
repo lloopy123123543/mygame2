@@ -62,6 +62,7 @@ class Game {
     }
 
     getBuffs() {
+
         return this.buffs;
     }
 }

@@ -122,11 +122,13 @@ function renderBot(bot) {
 
 function renderBuffs(buffs) {
     buffs.map(buff => {
-        let div = document.createElement('div');
-        div.id = 'buff_' + buff.id;
-        div.className = 'buff';
-        document.body.append(div);
+        let set = document.createElement('div');
+        set.id = 'buff_' + game.counter;
+        set.className = 'buff';
+        document.body.append(set);
+        set.x = (buff.x += 100);
         renderBuff(buff);
+        
     });
 }
 
@@ -153,7 +155,7 @@ function buffsLogic() {
     renderBuffs(game.getBuffs());
 }
 
-function botsLogic(game) {
+function botsLogic() {
     console.log(game.plusCounter());
     renderBots(game.getBots());
 }
