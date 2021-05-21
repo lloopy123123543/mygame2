@@ -1,5 +1,6 @@
-document.onkeydown = checkButton;
 
+
+document.onkeydown = checkButton;
 function checkButton(event) {
 
     cube.oldX = cube.x;
@@ -120,6 +121,8 @@ function renderBuffs(buffs) {
     });
 }
 
+
+
 function renderBuff(buff) {
     document.getElementById('buff_' + buff.id).style.top = buff.y + 'px';
     document.getElementById('buff_' + buff.id).style.left = buff.x + 'px';
@@ -144,8 +147,10 @@ function initShot() {
 
     let cubeBottom = cube.y + cube.height;
     let cubeRight = cube.x + cube.width;
+    
 
     buffs.forEach((buff,index) => {
+        
 
         let buffBottom = buff.y + buff.height;
         let buffRight = buff.x + buff.width;
@@ -157,10 +162,12 @@ function initShot() {
                  shotBuff(buff);
                  buffs.splice(index, 1);
                  stuck +=1;
+                 
                  cube.step*stuck;
-                 console.log(stuck)
+                 console.log(stuck);
 
              }
+             
         }
 
         if ((buff.x > cube.oldX && buff.x < cube.x) ||
@@ -170,14 +177,24 @@ function initShot() {
                 shotBuff(buff);
                 buffs.splice(index, 1);
                 stuck +=1;
+            
                 cube.step+=10;
-                 console.log(stuck)
+                 console.log(stuck);
             }
+            
        }
+       
     });
 }
-
 function shotBuff(buff) {
     console.log('shotBuff');
     document.getElementById('buff_' + buff.id).remove();
 }
+
+
+
+function renderDemo(stuck) {
+    document.getElementById("demo").innerHTML =stuck;
+    
+}
+document.getElementById("stuck").innerHTML =stuck;

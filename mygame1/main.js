@@ -1,3 +1,4 @@
+
 let map = {
     x: 0,
     y: 0,
@@ -49,13 +50,30 @@ let buff = {
     color: 'yellow'
 }
 
+demo={
+    x: 0,
+    y: 0,
+    id: 1,
+    width: 56,
+    height: 56,
+    trn: .25,
+    step: 56,
+    color: 'yellow'
+}
+
+
 // buffs.push(spawnCube(map, buff));
 
-renderMap(map);
-renderCube(spawnCube(map, cube));
+let stuck = 0;
+renderMap(map,stuck);
+renderCube(spawnCube(map, cube,stuck));
+
 // renderBots(bots);
 // renderBuffs(buffs);
 
 let tike = setInterval(timeTike, 3000);
+renderDemo(stuck);
 
-let stuck = 0;
+
+
+
